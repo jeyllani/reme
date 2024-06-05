@@ -1,0 +1,47 @@
+\setlength{\parskip}{1em} 
+                                        
+\linespread{1.5}        
+
+\setlength{\parindent}{0pt}   
+
+\setlist[itemize]{itemsep=-0.5em, left=-0.5em}
+\setlist[enumerate]{itemsep=-0.5em, left=2.2em}
+
+% \renewcommand{\tablename}{Tableau}
+% \renewcommand{\figurename}{Graphique}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,      
+    urlcolor=black,
+    anchorcolor=black,
+    citecolor =black,
+    filecolor =black,
+    menucolor =black,
+    runcolor =black,
+    linkbordercolor = {0 0 0},
+}
+
+\makeatletter
+\RequireBibliographyStyle{numeric}
+\makeatother
+
+
+% \titlespacing{\section}{-5em}{12pt plus 4pt minus 2pt}{6pt plus 2pt minus 2pt}
+% \titlespacing{\subsection}{0pt}{10pt plus 4pt minus 2pt}{5pt plus 2pt minus 2pt}
+% \titlespacing{\subsubsection}{0pt}{8pt plus 4pt minus 2pt}{4pt plus 2pt minus 2pt}
+
+
+
+\newcommand{\sectionref}[1]{\textsuperscript{[\ref{sec:#1}]}}
+\newcommand{\subsectionref}[1]{\textsuperscript{[\ref{subsec:#1}]}}
+\newcommand{\contentref}[1]{\textsuperscript{[\ref{content:#1}]}}
+
+
+% \makeatletter
+% \renewcommand{\sectionmark}[1]{%
+%   \markboth{\ifnum \c@secnumdepth>\z@
+%       \thesection\hskip 1em\relax
+%     \fi #1}{}}
+% \makeatother

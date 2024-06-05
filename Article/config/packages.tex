@@ -1,0 +1,126 @@
+\usepackage[hmargin=3cm,bmargin=2cm,tmargin=2cm,lmargin=3cm, centering]{geometry}
+
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}                                                       % Police https://tug.org/FontCatalogue/mathfonts.html
+\usepackage{titling}
+\usepackage[dvipsnames, table]{xcolor}
+\usepackage{multirow} % Pour fusionner les lignes
+\usepackage{fancyhdr}                                                           % Mise En page
+\usepackage{lastpage}% http://ctan.org/pkg/lastpage
+\usepackage{color, boxedminipage,  amsmath}                                     % MATHS
+\usepackage{xcolor}                                                             % Couleurs https://en.wikibooks.org/wiki/LaTeX/Colors
+\usepackage[table]{xcolor}
+\usepackage{tikz,pgfplots}
+\usetikzlibrary{intersections, shapes.misc, backgrounds, arrows.meta, angles, quotes, positioning, shadows, shadows.blur}
+\usepgfplotslibrary{polar}  
+                                        
+\usepackage{setspace}                                 \usepackage{tocloft}  
+\usepackage{array}                                                           
+\usepackage{outline} 
+\usepackage{pmgraph}
+\usepackage[normalem]{ulem}
+\usepackage{graphicx} 
+\usepackage{verbatim}
+\usepackage{blindtext}
+\usepackage{xpatch}
+\usepackage{tocloft}
+\renewcommand{\baselinestretch}{1}
+
+\usepackage[titletoc]{appendix}
+\usepackage{titletoc}
+\usepackage{fourier-orns}
+\usepackage{pgfornament}
+\usepackage{relsize}
+\usepackage{changepage}
+\usepackage[most]{tcolorbox}
+\usepackage{varwidth}
+\usepackage{pifont}                                                          
+\usepackage{listings}
+\usepackage{adjustbox}
+\tcbuselibrary{listings}
+\usepackage{arydshln}
+\usepackage{booktabs}
+\pgfplotsset{compat=1.18}
+\usepackage{sectsty}
+\usepackage{indentfirst}
+\usepackage{lipsum}
+\usepackage{amsthm}
+\usepackage{tikzpagenodes}
+\usetikzlibrary{calc}
+\usepackage{multicol}
+\usepackage{atbegshi}
+\usepackage{rerunfilecheck}
+\usepackage{hyperref}
+\usepackage{etoolbox}
+\usepackage{tabularx}
+\usepackage{moresize}
+\usepackage{textgreek}
+\usetikzlibrary{arrows}
+\usepackage{newtxtext,newtxmath}
+\usepackage{times}
+\usepackage{fontawesome}
+\usepackage{enumitem}
+\usepackage[american]{babel}
+\usepackage[font=scriptsize]{caption}
+\usepackage{float}
+\usepackage{filecontents}
+% \usepackage[sort&compress, numbers, brackets]{natbib}
+\usepackage[backend=biber,
+style=numeric,
+bibstyle=apa,
+citestyle=numeric-comp,
+sortcites,
+sorting=none,
+% backref,
+natbib,
+pagetracker=false,
+citetracker=true,
+block=none,
+hyperref]{biblatex}
+\renewcommand\citepunct{, }
+\usepackage[hyphens]{url}
+% \Urlmuskip=0mu plus 1mu\relax
+
+
+
+
+
+
+% \usepackage[sorting=none, style=ieee, backend=biber]{biblatex}
+
+
+% % % % Éviter les noms des articles en exposant
+% % \renewcommand*{\mkbibnamefirst}[1]{#1}
+% % \renewcommand*{\mkbibnamesuffix}[1]{#1}
+% % \renewcommand*{\mkbibnameprefix}[1]{#1}
+% % \renewcommand*{\mkbibnamegiven}[1]{#1}
+% % \renewcommand*{\mkbibnamefamily}[1]{#1}
+% % \renewcommand*{\mkbibnamelast}[1]{#1}
+
+% % Masquer les URL dans les références
+% \AtEveryBibitem{%
+%   \clearfield{url}%
+%   % \clearfield{urldate}%
+%   % \clearfield{doi}%
+% }
+
+% % % Renommer la section "Référence"
+% % \defbibheading{bibliography}{%
+% %   \section*{Références}%
+% % }
+
+% \bibliography{Article/references}
+% % \AtBeginBibliography{\footnotesize} % You can use \small, \footnotesize, etc.
+
+% % \DeclareFieldFormat{author}{}
+% % \AtEveryBibitem{%
+% %   \ifboolexpr{ test {\iffieldundef{author}} } 
+% %     {\clearfield{author}}
+% %     {}%
+% % }
+
+% \ExecuteBibliographyOptions{
+%   url = true, % pour s'assurer que les URLs sont toujours affichées
+%   doi = false, % si vous ne souhaitez pas afficher les DOIs
+%   isbn = false % si vous ne souhaitez pas afficher les ISBNs
+% }

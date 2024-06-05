@@ -1,0 +1,136 @@
+\section{Stratégie empirique}
+\label{sec:strategie}
+Cette section décrit la méthodologie employée pour évaluer l'impact de l'introduction de la taxe CO2 en 2008 en Suisse sur les émissions de gaz à effet de serre. Nous utilisons une approche combinée pour garantir la robustesse de nos résultats, comprenant une analyse de différence en différences (DiD) avec l'Autriche comme pays de contrôle, ainsi qu'une méthode de contrôle synthétique (SCM) incluant l'Autriche, le Luxembourg et la Hollande. La sélection de ces pays, justifiée dans la section précédente, permet de créer des groupes de comparaison fiables malgré les différences observées. Dans cette section, nous détaillerons les modèles économétriques utilisés, les hypothèses sous-jacentes, ainsi que les techniques de validation des résultats.
+
+%-------------------------------------------------------------------------%
+\subsection{Difference-in-Difference}
+\label{subsec:strategie_did}
+La DiD compare les variations des émissions de CO2 par habitant en Suisse avant et après la taxe avec celles observées en Autriche sur la même période. Le modèle DiD est spécifié comme suit :
+
+$$
+\mathbf{y_{it}^{CO2_{pc}}} = \boldsymbol{\alpha} \; + \; \boldsymbol{\tau} \cdot (\mathbf{D_{it}} \times \mathbf{T_t}) \; + \; \boldsymbol{\beta} \cdot \mathbf{X_{it}^{GDP}} \; + \; \boldsymbol{\gamma} \cdot \mathbf{P_{it}^{Pop}} \; + \; \boldsymbol{\theta} \cdot \mathbf{V_{it}^{Véh}} \; + \; \boldsymbol{\sigma} \cdot \mathbf{T_{it}^{Trans}} \; + \; \boldsymbol{\mu_i} \; + \; \boldsymbol{\delta_t} \; + \; \mathbf{\epsilon_{it}}
+$$
+
+\vspace{-0.4cm}
+
+\begin{itemize}
+\item[] où : 
+\end{itemize}
+
+\vspace{-0.4cm}
+
+\begin{itemize}
+    \item[] $\mathbf{y_{it}^{CO2_{pc}}}$ \quad est la variable dépendante représentant les émissions de CO2 par habitant pour le pays $i$ à l'année $t$.
+    \item[] $\boldsymbol{\alpha}$ \quad  est l'intercept.
+    \item[] $\boldsymbol{\tau}$ est le coefficient d'intérêt associé à l'interaction entre $\mathbf{D_{it}}$ (variable indiquant si le pays $i$ a introduit la taxe CO2) et $\mathbf{T_t}$ (variable indiquant la période post-introduction de la taxe).
+    \item[] $\boldsymbol{\beta}$ \quad  est le coefficient associé au PIB par habitant $\mathbf{X_{it}^{GDP}}$.
+    \item[] $\boldsymbol{\gamma}$ \quad  est le coefficient associé à la population $\mathbf{P_{it}^{Pop}}$.
+    \item[] $\boldsymbol{\theta}$ \quad  est le coefficient associé au nombre de véhicules $\mathbf{V_{it}^{Véh}}$.
+    \item[] $\boldsymbol{\sigma}$ \quad  est le coefficient associé au transport passager par rail $\mathbf{T_{it}^{Trans}}$.
+    \item[] $\boldsymbol{\mu_i}$ \quad  représente les effets fixes pour chaque pays $i$.
+    \item[] $\boldsymbol{\delta_t}$ \quad représente les effets fixes pour chaque année $t$.
+    \item[] $\boldsymbol{\epsilon_{it}}$ \quad  est le terme d'erreur.
+\end{itemize}
+
+
+\subsubsection{Hypothèses du modèle DiD}
+\label{subsubsec:strategie_did_hypothesis}
+
+\begin{itemize}
+    \item[] \textbf{Hypothèse des tendances parallèles} : 
+    \item[] Avant l'introduction de la taxe CO2, les tendances des émissions de CO2 par habitant en Suisse (traitée) et en Autriche (groupe de contrôle) sont parallèles, assurant que sans traitement, les émissions auraient évolué de manière similaire.
+    
+    \item[] \textbf{Absence d'interférence entre les unités} : 
+    \item[] La taxe CO2 en Suisse n'affecte pas directement les émissions de CO2 des autres pays de l'analyse, évitant toute contamination entre les groupes.
+    
+    \item[] \textbf{stabilité des effets des variables de contrôle} : 
+    \item[] Les coefficients des variables de contrôle ($\mathbf{X_{it}^{GDP}}$, $\mathbf{P_{it}^{Pop}}$, $\mathbf{V_{it}^{Véh}}$, $\mathbf{T_{it}^{Trans}}$) sont constants sur la période étudiée, signifiant que leur impact sur les émissions de CO2 est stable.
+    
+    \item[] \textbf{Exogénéité des variables explicatives} : 
+    \item[] Les variables explicatives ne sont pas corrélées avec le terme d'erreur $\mathbf{\epsilon_{it}}$, garantissant que les variables de contrôle ne capturent pas des variations non observées.
+\end{itemize}
+
+\subsubsection{Modèle des tendances linéaires}
+\label{subsubsec:strategie_linear_trend_method}
+
+Pour tester les tendances parallèles, nous utilisons le modèle disponible sur Stata \supercite{stata_didregress} qui ajoute des termes d'interaction :
+
+$$
+\mathbf{y_{ist}} \; = \;  \mathbf{DID_{ist}} \;  +\;   \mathbf{w_i} \mathbf{d_{t,0}} \mathbf{t} \boldsymbol{\zeta}_1 \;  + \;  \mathbf{w_i} \mathbf{d_{t,1}} \mathbf{t} \boldsymbol{\zeta}_2 \;  +\;  \boldsymbol{\epsilon_{ist}}
+$$
+
+où $d_{t,0}$ et $d_{t,1}$ indiquent les périodes pré- et post-traitement, et $w_i$ indique le groupe traité. Le test de Wald évalue si $\zeta_1 = 0$, vérifiant les tendances parallèles en pré-traitement.
+
+L'hypothèse nulle ($H_0$) est que les tendances sont parallèles. Le rejet de $H_0$ indique une violation des tendances parallèles, ce qui remet en question la validité des résultats DiD. Nos résultats montrent une divergence significative, indiquant une violation des tendances parallèles.
+
+
+%-------------------------------------------------------------------------%
+\subsection{Méthode de contrôle synthétique (SCM)}
+\label{subsec:strategie_scm_method}
+
+
+La SCM est utilisée pour créer un groupe de contrôle synthétique correspondant aux caractéristiques de la Suisse avant l'introduction de la taxe CO2. Cette méthode, plus robuste que les approches traditionnelles, combine les données de l'Autriche, du Luxembourg et de la Hollande pour minimiser les différences avec la Suisse sur les variables de contrôle. En assignant des pondérations optimales aux pays du groupe de contrôle synthétique, la SCM cherche à créer une combinaison linéaire des pays de contrôle qui imite au mieux les caractéristiques de la Suisse avant la mise en œuvre de la taxe. Les pondérations sont déterminées de manière à ce que la somme des pondérations soit égale à un, et qu'aucune pondération ne soit négative, assurant ainsi une représentation fidèle et équilibrée de la Suisse.
+
+
+Le modèle SCM est spécifié comme suit :
+
+$$
+\min_{\mathbf{\boldsymbol{\omega}}} \left( \mathbf{X}_{\mathbf{CHE}} - \left[ \mathbf{X}_{\mathbf{AUT}}, \mathbf{X}_{\mathbf{LUX}}, \mathbf{X}_{\mathbf{HOL}} \right]\begin{bmatrix} \boldsymbol{\omega}_{\mathbf{AUT}} \\ \boldsymbol{\omega}_{\mathbf{LUX}} \\ \boldsymbol{\omega}_{\mathbf{HOL}} \end{bmatrix} \right)^T \mathbf{V} \left( \mathbf{X}_{\mathbf{CHE}} - \left[ \mathbf{X}_{\mathbf{AUT}}, \mathbf{X}_{\mathbf{LUX}}, \mathbf{X}_{\mathbf{HOL}} \right] \begin{bmatrix} \boldsymbol{\omega}_{\mathbf{AUT}} \\ \boldsymbol{\omega}_{\mathbf{LUX}} \\ \boldsymbol{\omega}_{\mathbf{HOL}} \end{bmatrix} \right)
+\quad \text{s.c.} \begin{cases}
+\Sigma \, \boldsymbol{\omega}_k & = 1 \\
+\boldsymbol{\omega}_k & \geq 0 
+\end{cases}
+$$
+
+
+\begin{itemize}
+\item[] où : \vspace*{0.2cm}
+   \item[] $\mathbf{X}_{\mathbf{CHE}}$ \quad est le vecteur des variables de contrôle pour la Suisse.
+    \item[] $\mathbf{X}_{\mathbf{AUT}}$, $\mathbf{X}_{\mathbf{LUX}}$, $\mathbf{X}_{\mathbf{HOL}}$ \quad  sont les vecteurs des variables de contrôle pour l'Autriche, le Luxembourg et la Hollande, respectivement. \vspace*{0.2cm}
+    \item[] $\mathbf{\boldsymbol{\omega}} = \begin{bmatrix} \boldsymbol{\omega}_{\mathbf{AUT}} \\ \boldsymbol{\omega}_{\mathbf{LUX}} \\ \boldsymbol{\omega}_{\mathbf{HOL}} \end{bmatrix}$ \quad  sont les pondérations des pays dans le groupe de contrôle synthétique. \vspace*{0.2cm}
+    \item[] $\mathbf{V}$ \quad  est une matrice de pondération semi-définie positive.
+\end{itemize}
+
+L'estimation des émissions de CO2 synthétiques pour la Suisse est donnée par :
+
+$$
+\hat{\mathbf{y}}_{\mathbf{CHE}, t}^{\mathbf{Synth}} \quad = \quad \sum_{k \boldsymbol{\in} \{\mathbf{AUT}, \mathbf{LUX}, \mathbf{HOL}\}} \boldsymbol{\omega}_\mathbf{k} \cdot \mathbf{y}_{\mathbf{k, t}}
+$$
+\label{content:scm}
+où $\mathbf{y}_{\mathbf{k, t}}$ sont les émissions de CO2 pour le pays $k$ à l'année $t$.
+
+
+La mesure de l'effet de la taxe CO2 est la différence entre les émissions de CO2 observées en Suisse et celles estimées pour le groupe de contrôle synthétique :
+
+$$
+\boldsymbol{\Delta} \mathbf{y}_{\mathbf{CHE}, t} = \mathbf{y}_{\mathbf{CHE}, t} - \hat{\mathbf{y}}_{\mathbf{CHE}, t}^{\mathbf{Synth}}
+$$
+
+
+La racine carrée de l'erreur quadratique moyenne prédite (RMSPE) est une mesure de l'ajustement du modèle, utilisée pour évaluer la qualité de la correspondance entre le groupe traité et le groupe de contrôle synthétique. Elle est calculée comme suit :
+
+$$
+\textbf{RMSPE} \;   =\;  \sqrt{\frac{1}{T} \sum_{t=1}^{T} (\hat{y}_{\text{synthetic}, t} - y_{\text{treated}, t})^2}
+$$
+\label{content:rmspe}
+
+où $\hat{y}_{\text{synthetic}, t}$ est la valeur prédite pour le groupe de contrôle synthétique, et $y_{\text{treated}, t}$ est la valeur observée pour le groupe traité.
+
+Cette méthode permet de créer un groupe de contrôle synthétique qui reflète le plus fidèlement possible ce qu'auraient été les émissions de CO2 en Suisse en l'absence de la taxe, et de mesurer précisément l'effet de la taxe.
+
+\subsubsection{Hypothèses du modèle SCM}
+\label{subsec:strategie_scm_hypothesis}
+
+\begin{itemize}
+    \item[] \textbf{Pondération convexe} : 
+    \item[] Les pondérations doivent être non négatives et leur somme doit être égale à un.
+    \item[] \textbf{Similarité pré-traitement} : 
+    \item[] Les unités de contrôle doivent avoir des caractéristiques et des tendances similaires à celles de l'unité traitée avant l'intervention.
+    \item[] \textbf{Stabilité des effets des covariables} : 
+    \item[] Les relations entre les covariables et l'issue d'intérêt doivent rester stables au fil du temps.
+    \item[] \textbf{Exclusion de perturbations Importantes} : 
+    \item[] Aucun autre événement majeur ne doit influencer les variables d'intérêt pendant la période d'étude.
+    \item[] \textbf{Indépendance conditionnelle} :
+    \item[] Conditionnellement aux covariables, les résultats de l'unité traitée et des unités de contrôle sont indépendants.
+\end{itemize}
+
