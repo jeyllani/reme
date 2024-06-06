@@ -1,0 +1,113 @@
+\documentclass[7pt]{article}
+\usepackage{import}
+\import{./config/}{packages.tex}     
+\import{./config/}{config.tex}     
+\import{./}{bibliographie.tex}
+
+
+
+
+%----------------------------------------------------------------------%
+\title{\Large \textbf{Impact de l'introduction de la taxe CO2 en 2008 en Suisse sur les émissions de gaz à effet de serre}} 
+
+
+
+\author{\small
+   $
+    \substack{
+    ^*\text{\textbf{Abdul Kadir Jeylani Bakari}} \\\\
+    \hyperlink{mailto:abdul.jeylanibakari@unil.ch}{\text{abdul.jeylanibakari@unil.ch}}
+    }
+    $\quad , \quad
+    $
+    \substack{
+    ^*\text{\textbf{Felix Glemser}} \\\\
+    \hyperlink{mailto:felix.glemser@unil.ch}{\text{felix.glemser@unil.ch}}
+    }
+    $ \quad , \quad
+    $
+    \substack{
+    ^*\text{\textbf{Karim Belghmi}} \\\\
+    \hyperlink{mailto:karim.belghmi@unil.ch}{\text{karim.belghmi@unil.ch}}
+    }
+    $ \quad , \quad
+    $
+    \substack{
+    ^*\text{\textbf{Kyle Fletcher}} \\\\
+    \hyperlink{mailto:kyle.fletcher@unil.ch}{\text{kyle.fletcher@unil.ch}}
+    }
+    $\quad , \quad
+    $
+    \substack{
+    ^*\text{\textbf{Stella Marinelli}} \\\\
+    \hyperlink{mailto:stella.marinelli@unil.ch}{\text{stella.marinelli@unil.ch}}
+    }
+    $
+    \\\\
+{\footnotesize $^*$Faculté des Hautes Études Commerciales, Université de Lausanne, Suisse}
+}
+\vspace{0.1cm}
+
+\date{\small 7 juin 2024}
+%----------------------------------------------------------------------%
+\begin{document}
+% \nocite{*}
+
+%----------------------------------------------------------------------%
+\begin{titlingpage}
+    \maketitle
+\vspace*{3.12345cm}
+
+
+\begin{abstract}
+    \noindent Cette étude examine l'impact de l'introduction de la taxe sur le CO2 en 2008 en Suisse sur les émissions de gaz à effet de serre. En utilisant une approche de différence en différences (DiD), nous comparons la Suisse avec l'Autriche pour identifier les changements significatifs des émissions de CO2 par habitant après la mise en œuvre de la politique. Nos résultats indiquent une réduction statistiquement significative des émissions de CO2 par habitant en Suisse suite à l'introduction de la taxe carbone. Cependant, les tests des tendances parallèles suggèrent des violations de cette hypothèse, soulignant les défis d'isoler l'impact de la politique en utilisant uniquement la méthode DiD. Pour pallier cette violation, nous avons utilisé la méthode de contrôle synthétique (SCM) pour construire un groupe de contrôle synthétique à partir de pays de comparaison potentiels, incluant les Pays-Bas, le Luxembourg et l'Autriche. L'analyse SCM soutient ces résultats mais met en lumière les limites de la création d'un contrôle synthétique de haute qualité en raison des faibles pondérations pour la Hollande et le Luxembourg. Nos conclusions suggèrent que bien que la taxe carbone ait été efficace pour réduire les émissions, il est essentiel de considérer les défis méthodologiques et les limitations des données dans les futures études. \\
+    
+
+    \noindent \textbf{Mots-clés :} Taxe sur le carbone, Émissions de gaz à effet de serre, Différence en différences, Méthode de contrôle synthétique, Évaluation de l'impact des politiques, Suisse
+
+
+\end{abstract}
+
+
+
+
+
+
+\end{titlingpage}
+%----------------------------------------------------------------------%
+% \newpage 
+% %----------------------------------------------------------------------% TOC
+% \fancyhf{}
+
+
+% \thispagestyle{empty}
+% \pagestyle{empty}
+
+% \@starttoc{toc}
+%----------------------------------------------------------------------% 
+\newpage 
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[R]{{{{\thepage}\hspace{-1cm}}}}
+\pagestyle{fancy}
+\thispagestyle{fancy}
+\setcounter{page}{1}
+% \footnotesize
+%----------------------------------------------------------------------% Sections
+\import{./sections/}{1_introduction.tex}   
+\import{./sections/}{2_context.tex}   
+\import{./sections/}{3_data.tex}   
+\import{./sections/}{4_strategie_empirique.tex}   
+\import{./sections/}{5_resultats.tex}   
+\newpage
+\import{./sections/}{6_conclusion.tex}   
+ 
+% ---------------------------------------------------------------------------- %
+\nocite{*}
+\newpage
+\printbibliography[title={Références}]
+% ---------------------------------------------------------------------------- %
+
+
+
+\end{document}

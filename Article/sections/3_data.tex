@@ -15,22 +15,22 @@ Les variables sélectionnées pour l'analyse sont cruciales pour comprendre l'im
 
 \begin{itemize}[itemsep=-0.5em]
 
-    \item[] \textbf{Émissions de CO2 par habitant} (tonnes) (OCDE) \supercite{greenhouse}: 
+    \item[] \textbf{Émissions de CO2 par habitant} en tonnes par habitant, (OCDE) \supercite{greenhouse} : 
     \item[] Mesure des émissions de CO2 par individu, un indicateur clé de la performance environnementale.
 
-    \item[] \textbf{Population} (en millions) (OCDE) \supercite{oecd_population}: 
+    \item[] \textbf{Population} en millions, (OCDE) \supercite{oecd_population} : 
     \item[] Mesure essentielle pour comparer l'impact démographique sur les émissions de CO2.
     \item[] \textbf{Transport passager par rail } (passager-kilomètres, millions) (OCDE)\supercite{oecd2023} : 
     \item[] Indicateur de l'activité de transport, directement lié aux émissions de CO2.
     
-    \item[] \textbf{Nombre de véhicules } (par milliers d'habitants) (OCDE) \supercite{oecd_transport} : 
+    \item[] \textbf{Nombre de véhicules } par milliers d'habitants, (OCDE) \supercite{oecd_transport} : 
     \item[] Inclut les véhicules privés et commerciaux, une source majeure d'émissions de CO2.
     
-    \item[] \textbf{Variation du PIB par habitant (\%)} (OCDE) \supercite{gdp} : 
+    \item[] \textbf{Variation du PIB par habitant} en \%, (OCDE) \supercite{gdp} : 
     \item[] Indicateur économique clé reflétant la croissance et la prospérité économique, influençant potentiellement les émissions de CO2.
     
     
-    \item[] \textbf{Consommation énergétique} (en MWh/habitant) (Our World in Data) \supercite{energy} : 
+    \item[] \textbf{Consommation énergétique} en MWh par habitant, (Our World in Data) \supercite{energy} : 
     \item[] Indicateur de la dépendance énergétique du pays, bien que cette variable ait été exclue de l'analyse finale en raison de données limitées.
 \end{itemize}
 
@@ -120,7 +120,7 @@ Le graphique ci-dessous compare les variables "transports par rail" entre la Sui
 %------------------------------------------------------------------------------------%
 
         \begin{figure}[H]
-\textbf{Figure {$\ref{fig:trend_megawats}$}} : Le graphique ci-dessous compare les variables "onsommation d'électricité" entre la Suisse et les pays candidats. Les écarts significatifs observés pour certains pays ont conduit à leur élimination à cette étape.
+\textbf{Figure {$\ref{fig:trend_megawats}$}} : Le graphique ci-dessous compare les variables "consommation d'électricité" entre la Suisse et les pays candidats. Les écarts significatifs observés pour certains pays ont conduit à leur élimination à cette étape.
 
 
         \centering
@@ -128,7 +128,7 @@ Le graphique ci-dessous compare les variables "transports par rail" entre la Sui
         \caption{}
         \label{fig:trend_megawats}
 \begin{center}
-Élimination : Portugal et Luxembourg (écarts significatifs dans la consommation d'électricité par habitant par rapport à la Suisse).
+Élimination : Hollande, Luxembourg et Portugal (écarts significatifs dans la consommation d'électricité par habitant par rapport à la Suisse).
 \end{center}
     \end{figure}
 
@@ -147,7 +147,7 @@ Le graphique ci-dessous compare les variables "transports par rail" entre la Sui
 \caption{}
 \label{fig:trend_vehicules}
 \begin{center}
-    Élimination : Hollande (écart significatif du nombre de véhicules par rapport à la Suisse).
+    Élimination : Hollande (second écart significatif, dû au nombre de véhicules par rapport à la Suisse).
 \end{center}
 \end{figure}
 
@@ -189,7 +189,6 @@ Cette analyse a révélé que les tendances des émissions de CO2 en Suisse et e
 
 Les statistiques descriptives des variables clés pour la Suisse et l'Autriche sont présentées ci-dessous. Ces statistiques incluent les moyennes, les écarts-types, les valeurs minimales et maximales, ainsi que les mesures de skewness et kurtosis.
 
-\textbf{Tableau 1} : Statistiques descriptives pour la Suisse
 
 
 \begin{table}[H]
@@ -210,14 +209,13 @@ vehicules   &          24&    619.1407&    31.21581&    558.8837&    660.2146&  
 \hline
 \end{tabular}
 }
-    \caption{Suisse}
+    \caption{ Statistiques descriptives pour la Suisse (1994-2018)}
     \label{tab:Suisse}
 \end{table}
 
 
 % \newpage 
 
-\textbf{Tableau 2} : Statistiques descriptives pour l'Autriche
 
 
 \begin{table}[H]
@@ -238,7 +236,7 @@ vehicules   &          24&    594.8536&    41.32612&    505.4989&    656.0979&  
 \hline
 \end{tabular}
 }
-    \caption{Autriche}
+    \caption{Statistiques descriptives pour l'Autriche (1994-2018)}
     \label{tab:Autriche}
 \end{table}
 
@@ -277,10 +275,6 @@ En complément de l'analyse DiD, nous avons employé la méthode de contrôle sy
 \textbf{Sélection et pondération des pays dans le groupe synthétique :} 
 Le Luxembourg et la Hollande ont été choisis pour leurs similitudes avec la Suisse sur certaines variables clés. Les pondérations des pays ont été déterminées pour maximiser la similarité entre le groupe synthétique et la Suisse avant l'introduction de la taxe. Le Portugal a été exclu en raison de données manquantes pour les véhicules, ce qui aurait pu introduire des biais dans l'analyse.
 
-\textbf{Table \ref{tab:Luxembourg}} : Statistiques descriptives pour le Luxembourg
-
-
-
 
     \footnotesize{
 \begin{table}[H]
@@ -300,14 +294,12 @@ vehicules   &          24&    502.8899&     68.7504&    384.8425&    598.8957&  
 \(N\)       &          24&            &            &            &            &            &            \\
 \hline
 \end{tabular}
-    \caption{Luxembourg}
+    \caption{Statistiques descriptives pour le Luxembourg (1994-2018)}
     \label{tab:Luxembourg}
 \end{table}
 }
 
 % \newpage 
-
-\textbf{Tableau \ref{tab:Hollande}} : \normalsize Statistiques descriptives pour la Hollande
 
 
 \begin{table}[H]
@@ -328,7 +320,7 @@ vehicules   &          24&    502.8899&     68.7504&    384.8425&    598.8957&  
         \hline
     \end{tabular}
 }
-    \caption{Hollande}
+    \caption{Statistiques descriptives pour la Hollande (1994-2018)}
     \label{tab:Hollande}
 \end{table}
 

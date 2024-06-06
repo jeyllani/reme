@@ -13,7 +13,7 @@ Nous avons effectué une analyse de différence en différences (DiD) pour estim
 
 
 
-\begin{table}[ht]
+\begin{table}[H]
 \centering
 \tiny{
 \begin{tabular}{lcc} \hline
@@ -93,7 +93,7 @@ Les résultats montrent un effet significatif de la taxe CO2 sur les émissions,
 Pour évaluer la validité de notre analyse de différence en différences (DiD), nous avons effectué un test des \hyperref[subsec:linear_trend_method]{tendances parallèles}. Les graphiques sur la figure \ref{fig:omeans} et la figure \ref{fig:pt_test} ci-après présentent visuellement les tendances des émissions de CO2 par habitant pour la Suisse et l'Autriche avant l'introduction de la taxe CO2 en 2008. Ces graphiques des moyennes observées et des tendances linéaires sont complémentaires pour l'analyse et fournissent une évaluation visuelle cruciale de l'hypothèse des tendances parallèles.
 
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.6\textwidth]{Article/images/pt_test_omeans.png}
 \caption{}
@@ -102,7 +102,7 @@ Pour évaluer la validité de notre analyse de différence en différences (DiD)
 
 \vspace*{0.5cm}
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.6\textwidth]{Article/images/linear_trend_test.png}
 \caption{}
@@ -110,7 +110,7 @@ Pour évaluer la validité de notre analyse de différence en différences (DiD)
     \end{figure}
 
     
-En plus du graphique, nous présentons le  tableau$^{\left[\ref{tab:parallel_trends_test_table}\right]$ ci-après contenant les résultats du test statistique des tendances parallèles. Les résultats montrent que les tendances des émissions de CO2 en Suisse et en Autriche ne sont pas parfaitement parallèles pendant la période pré-traitement. Cette absence de parallélisme est mise en évidence par un rejet significatif de l'hypothèse nulle, comme le montre une p-value de 0.000034506402586, indiquant une violation significative de l'hypothèse des tendances parallèles.
+En plus du graphique, nous présentons le  tableau$^{\left[\ref{tab:parallel_trends_test_table}\right]}$ ci-après contenant les résultats du test statistique des tendances parallèles. Les résultats montrent que les tendances des émissions de CO2 en Suisse et en Autriche ne sont pas parfaitement parallèles pendant la période pré-traitement. Cette absence de parallélisme est mise en évidence par un rejet significatif de l'hypothèse nulle, comme le montre une p-value de 0.000034506402586, indiquant une violation significative de l'hypothèse des tendances parallèles$^{\left[\ref{subsubsec:strategie_did_hypothesis}\right]}$.
 
 
 \begin{table}[H]
@@ -139,8 +139,8 @@ Dans cette section, nous présentons les résultats de notre analyse utilisant l
 
 Nous présentons sur le graphique de la figure \ref{fig:scm_omeans} les moyennes observées qui inclut le pays contrefactuel constitué des pondérations de l'Autriche, du Luxembourg et de la Hollande, ainsi que les résultats de ces pondérations. En effet, le graphique de la figure \ref{fig:scm_omeans} des moyennes observées est très similaire au graphique de la figure \ref{fig:omeans} observé lors de la DID avec seulement l'Autriche comme pays de contrôle, compte tenu de la faible contribution de la Hollande et de la contribution nulle du Luxembourg.
 
-\vspace*{-0.6cm}
-\begin{figure}[h]
+
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.6\textwidth]{Article/images/scm_omeans.png}
 \caption{}
@@ -148,7 +148,7 @@ Nous présentons sur le graphique de la figure \ref{fig:scm_omeans} les moyennes
     \end{figure}
 
 
-Les pondérations allouées dans le tableau \ref{tab:unit_weights} montrent que l'Autriche a la plus grande contribution (90.2\%), tandis que le Luxembourg n'a aucune contribution (0.0\%) et la Hollande une contribution minimale (9.8\%).
+Les pondérations allouées dans la table \ref{tab:unit_weights} montrent que l'Autriche a la plus grande contribution (90.2\%), tandis que le Luxembourg n'a aucune contribution (0.0\%) et la Hollande une contribution minimale (9.8\%).
 
 % Tableau des poids des unités
 \begin{table}[ht]
@@ -168,7 +168,7 @@ NLE         &           4   &        .098\\
 \label{tab:unit_weights}
 \end{table}
 
-Le tableau \ref{tab:RMSPE} montre un RMSPE de 1.981583 tonnes de CO2 par habitant, indiquant une erreur de prédiction considérable et suggérant que l'ajustement du modèle synthétique présente des écarts significatifs par rapport aux observations réelles.
+La table \ref{tab:RMSPE} montre un RMSPE de 1.981583 tonnes de CO2 par habitant, indiquant une erreur de prédiction considérable et suggérant que l'ajustement du modèle synthétique présente des écarts significatifs par rapport aux observations réelles.
 
 % Tableau du RMSPE
 \begin{table}[ht]
@@ -186,7 +186,7 @@ RMSPE       &    1.981583\\
 \label{tab:RMSPE}
 \end{table}
 
-Au vu des pondérations allouées (90.2 \% pour l'Autriche, 0.0 \% pour le Luxembourg, et 9.8 \% pour la Hollande) et d'un RMSPE de 1.981583 tonnes de CO2 par habitant, nous nous reposons sur le test initial des tendances parallèles qui a montré une violation de celles-ci. Bien que le résultat du SCM montre un effet négatif sur les émissions de CO2 (puisque le SCM est calculé comme la différence entre les émissions synthétiques et les émissions observées, \( y_{\text{synth, che}} - y_{\text{che}} \))\contentref{scm}, ce résultat suggère un impact négatif de la taxe CO2 très proche du résultat de la DiD. Cependant, en raison de la violation des tendances parallèles et des limitations méthodologiques associées, nous nous trouvons dans l'impossibilité de conclure à un effet causal robuste de la taxe CO2 sur les émissions de gaz à effet de serre en Suisse.
+Au vu des pondérations allouées (90.2 \% pour l'Autriche, 0.0 \% pour le Luxembourg, et 9.8 \% pour la Hollande) et d'un RMSPE\contentref{scm} de 1.981583$^{\left[\ref{tab:RMSPE}\right]}$  tonnes de CO2 par habitant, nous nous reposons sur le test initial des tendances parallèles qui a montré une violation de celles-ci. Bien que le résultat du SCM montre un effet négatif sur les émissions de CO2 (puisque le SCM est calculé comme la différence entre les émissions synthétiques et les émissions observées, \( y_{\text{synth, che}} - y_{\text{che}} \))\contentref{scm}, ce résultat suggère un impact négatif de la taxe CO2 très proche du résultat de la DiD. Cependant, en raison de la violation des tendances parallèles et des limitations méthodologiques associées, nous nous trouvons dans l'impossibilité de conclure à un effet causal robuste de la taxe CO2 sur les émissions de gaz à effet de serre en Suisse.
 
 
 \subsection{Interprétation des résultats}
